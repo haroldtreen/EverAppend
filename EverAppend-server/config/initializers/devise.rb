@@ -229,7 +229,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :evernote, ENV['EVERNOTE_CONSUMER_KEY'], ENV['EVERNOTE_SECRET_KEY'], scope: 'user,public_repo'
+  config.omniauth :evernote, ENV['EVERNOTE_CONSUMER_KEY'], ENV['EVERNOTE_SECRET_KEY'], :client_options => { :site => ENV['EVERNOTE_BASE_URL'] }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

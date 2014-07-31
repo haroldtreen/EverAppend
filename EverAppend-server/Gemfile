@@ -38,7 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'evernote_oauth' # Evernote oauth
+gem 'awesome_print'
+
+gem 'evernote' # Evernote interface
+gem 'omniauth-evernote' # Oauth provider for evernote
 
 gem 'devise' # User authentication
 
