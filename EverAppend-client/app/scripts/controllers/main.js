@@ -15,11 +15,35 @@ angular.module('everAppendClientApp')
       'Karma'
     ];
 
-    $scope.authEvernote = function(){
-    	OAuth.initialize('');
+    var authWindow;
+    var returnedValue= 'nope :(';
+    var frm;
 
-    	OAuth.popup('evernote_sandbox').done(function(result) {
-		    console.log(result);
-			});
+    $scope.authEvernote = function(){
+			authWindow = window.open('http://localhost:3000/users/auth/evernote', '_blank', 'height=800,width=200');
+
+
+			setInterval(function(){
+				authWindow.postMessage('HOLLA!', 'http:localhost:3000/');
+			}, 500);
+  		// frm = document.createElement("iframe");
+    //   frm.src = 'http://localhost:3000/evernote-auth';
+    //   frm.width = 0;
+    //   frm.height = 0;
+    //   frm.frameBorder = 0;
+    //   frm.style.visibility = "hidden";
+
+      // document.body.appendChild(frm);
+
+      window.addEventListener('message', function() { console.log("BOOM!") }, false);
+    };
+
+    window.domain = 'http://localhost:9000'
+
+    $scope.printWindow = function(){
+    	console.log(returnedValue);
+
+    	// frm.contentWindow.postMessage("MESSAGE!", 'http://localhost:3000');
+    	authWindow.postMessage('HOLLA!', 'http:localhost:3000/');
     };
   }]);

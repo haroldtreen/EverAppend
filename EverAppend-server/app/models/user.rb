@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :rememberable, :trackable, :validatable,
+  devise :database_authenticatable, :rememberable, :trackable,
          :omniauthable, omniauth_providers: [:evernote]
 
 
@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
 
   	where(username: name).first_or_create do |user|
   		user.username = name
-  		user.password = Devise.friendly_token[0,20]
   		user.auth_token = token
   	end
   end

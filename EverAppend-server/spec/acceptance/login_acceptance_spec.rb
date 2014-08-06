@@ -3,7 +3,7 @@ require 'rspec_api_documentation/dsl'
 
 resource 'Login' do
 
-	post '/api/login' do
+	post '/users/auth/evernote' do
 		parameter :username, 'string', required: true
 		parameter :password, 'string', required: true
 

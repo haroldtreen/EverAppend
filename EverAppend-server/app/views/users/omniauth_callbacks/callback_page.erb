@@ -1,0 +1,29 @@
+<html>
+
+<script>
+	window.domain = 'http://localhost:9000'
+	window.name = 'Done'
+	window.postMessage('Hello!', 'http://localhost:3000');
+	setInterval( function() {  
+		var event = new Event('HelloWorld');
+		window.opener.window.dispatchEvent(event)
+	}, 5000);
+
+	window.postMessage("Hello!", 'http://localhost:9000');
+
+	window.addEventListener('message', receiveMessage, false);
+
+
+	function receiveMessage(event)
+	{
+	  console.log(event);
+	  console.log('YA!');
+	  console.log(event.origin);
+	  event.source.postMessage("hi there yourself!  the secret response", event.origin);
+	}
+
+
+
+</script>
+
+<html>
