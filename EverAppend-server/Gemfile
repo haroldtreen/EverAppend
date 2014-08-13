@@ -54,8 +54,12 @@ gem 'apitome' # Viewer for api docs
 
 group :development, :test do
 	gem 'rspec-rails'
+	gem 'factory_girl_rails'
+	gem 'faker'
 end
 
 group :test do
 	gem 'simplecov'
+	gem 'guard'
+	gem 'guard-rspec'
 end
