@@ -1,0 +1,8 @@
+<script>
+setInterval(function() {
+	// Send the message "Hello" to the parent window
+	// ...if the domain is still "davidwalsh.name"
+	window.parent.postMessage("Hello","http://localhost:9000");
+},1000);
+
+</script>

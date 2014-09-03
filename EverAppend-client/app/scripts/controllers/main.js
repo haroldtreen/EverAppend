@@ -15,30 +15,29 @@ angular.module('everAppendClientApp')
       'Karma'
     ];
 
-    var authWindow;
+    $scope.authWindow = {};
     var returnedValue= 'nope :(';
-    var frm;
+    $scope.frm = {};
 
     $scope.authEvernote = function(){
-			authWindow = window.open('http://localhost:3000/users/auth/evernote', '_blank', 'height=800,width=200');
+			// $scope.authWindow = window.open('http://localhost:3000/auth/evernote', '_blank', 'height=800,width=200');
 
 
-			setInterval(function(){
-				authWindow.postMessage('HOLLA!', 'http:localhost:3000/');
-			}, 500);
-  		// frm = document.createElement("iframe");
-    //   frm.src = 'http://localhost:3000/evernote-auth';
-    //   frm.width = 0;
-    //   frm.height = 0;
-    //   frm.frameBorder = 0;
-    //   frm.style.visibility = "hidden";
+			// setInterval(function(){
+			// 	authWindow.postMessage('HOLLA!', 'http:localhost:3000/');
+			// }, 500);
 
-      // document.body.appendChild(frm);
+  		$scope.frm = document.createElement("iframe");
+      $scope.frm.src = 'http://localhost:3000/auth/evernote';
+      $scope.frm.width = 500;
+      $scope.frm.height = 500;
+      $scope.frm.frameBorder = 0;
+      // frm.style.visibility = "hidden";
 
-      window.addEventListener('message', function() { console.log("BOOM!") }, false);
+      document.body.appendChild($scope.frm);
+
+      $scope.frm.addEventListener('message', function() { console.log("BOOM!") }, false);
     };
-
-    window.domain = 'http://localhost:9000'
 
     $scope.printWindow = function(){
     	console.log(returnedValue);

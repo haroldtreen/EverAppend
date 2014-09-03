@@ -34,6 +34,6 @@ describe 'Login Spec' do
 			follow_redirect!
 		}.to_not change{ User.count }
 
-		expect(session[:token]).to eq(user.auth_token)
+		expect(session[:auth_token]).to eq(user.auth_token)
 	end
 end
